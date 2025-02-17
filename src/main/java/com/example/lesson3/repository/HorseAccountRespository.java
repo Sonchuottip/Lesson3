@@ -1,4 +1,5 @@
-package com.example.lesson3.Repository;
+package com.example.lesson3.repository;
 
 public class HorseAccountRespository {
+
 }

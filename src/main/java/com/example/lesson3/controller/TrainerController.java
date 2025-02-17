@@ -1,7 +1,6 @@
-package com.example.lesson3.Controller;
-import com.example.lesson3.Entities.Trainer;
-import com.example.lesson3.Repository.TrainerRepository;
-import com.example.lesson3.Service.TrainerService;
+package com.example.lesson3.controller;
+import com.example.lesson3.entities.Trainer;
+import com.example.lesson3.service.TrainerService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -29,7 +28,7 @@ public class TrainerController {
 
     @PostMapping
     public Trainer createTrainer(@RequestBody Trainer trainer) {
-        return trainerService.CreateTrainer(trainer);
+        return trainerService.createTrainer(trainer);
     }
 
     @PutMapping("/{id}")

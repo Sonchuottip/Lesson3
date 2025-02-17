@@ -1,4 +1,4 @@
-package com.example.lesson3.Entities;
+package com.example.lesson3.entities;
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -13,11 +13,12 @@ import jakarta.persistence.*;
 public class Trainer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer id;
 
     @Column(length = 255, nullable = false)
-    private String Name;
+    private String name;
 
-    @Column(name="account_id", nullable = false)
-    private int AccountId;
+    @OneToOne
+    @JoinColumn(name = "account_id", referencedColumnName = "id",nullable = false)
+    private Account account;
 }

@@ -1,6 +1,7 @@
-package com.example.lesson3.Service;
-import com.example.lesson3.Entities.Trainer;
-import com.example.lesson3.Repository.TrainerRepository;
+package com.example.lesson3.service;
+import com.example.lesson3.entities.Trainer;
+import com.example.lesson3.repository.TrainerRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -19,16 +20,16 @@ public class TrainerService {
         return trainerRepository.findById(Id);
     }
 
-    public Trainer CreateTrainer(Trainer trainer) {
+    public Trainer createTrainer(Trainer trainer) {
         return trainerRepository.save(trainer);
     }
 
     public Optional<Trainer> UpdateTrainer(int id,Trainer trainer) {
         return trainerRepository.findById(id).map(existingTrainer -> {
             existingTrainer.setName(trainer.getName());
-            existingTrainer.setAccountId(trainer.getAccountId());
-            return Optional.of(trainerRepository.save(existingTrainer));
-        }).orElse(Optional.empty());
+            existingTrainer.setAccount(trainer.getAccount());
+            return trainerRepository.save(existingTrainer);
+        });
     }
 
     public boolean deleteTrainer(int Id) {

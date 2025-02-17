@@ -1,16 +1,33 @@
-package com.example.lesson3.Entities;
+package com.example.lesson3.entities;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 import lombok.*;
-import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Entity
+@Table(name = "horse")
 
 public class Horse {
-    private Integer Id;
-    private String Name;
-    private LocalDateTime Floaled;
-    private Integer Archive;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private Integer id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date foaled;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "horse")
+    private List<HorseAccount> horseAccounts;
 }

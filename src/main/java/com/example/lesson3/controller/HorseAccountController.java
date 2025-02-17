@@ -1,4 +1,4 @@
-package com.example.lesson3.Controller;
+package com.example.lesson3.controller;
 
 public class HorseAccountController {
 }
