@@ -21,11 +21,11 @@ public class HorseController {
         return ResponseEntity.ok(horseService.getAllHorse());
     }
 
-    /*@GetMapping
+    @GetMapping
     public ResponseEntity<List<Horse>> getFileredHorse(@RequestParam(required = false) Integer year,
                                                        @RequestParam(required = false) Integer trainerId) {
         return ResponseEntity.ok(horseService.getFilterHorses(year, trainerId));
-    }*/
+    }
 
     @PostMapping
     public ResponseEntity<Horse> addHorse(@RequestBody Horse horse) {

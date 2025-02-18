@@ -23,18 +23,18 @@ public class Account {
     private String username;
 
     @Column(length = 50,nullable = false)
-    private String Password;
+    private String password;
 
     @Column(nullable = false )
-    private Integer Status;
+    private Integer status;
 
-    @JsonManagedReference
+    //@JsonManagedReference
     @OneToMany(mappedBy = "account")
     private List<HorseAccount> horseAccounts;
 
     public Account(String username, String password, Integer status) {
         this.username = username;
-        this.Password = password;
-        this.Status = status;
+        this.password = password;
+        this.status = status;
     }
 }

@@ -17,9 +17,9 @@ public class HorseService {
         return horseRepository.findAll();
     }
 
-    /*public List<Horse> getFilterHorses(Integer trainerId, Integer year) {
-        return horseRepository.findByFoaledYearAndTrainerId(year, trainerId);
-    }*/
+    public List<Horse> getFilterHorses(Integer trainerId, Integer year) {
+        return horseRepository.findByTrainerAndYear(trainerId,year) ;
+    }
 
     public Horse createHorse(Horse horse) {
         return horseRepository.save(horse);

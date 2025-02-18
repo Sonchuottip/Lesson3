@@ -25,7 +25,7 @@ public class HorseAccount {
     @JoinColumn(name = "horse_id", referencedColumnName = "id", nullable = false)
     private Horse horse;
 
-    @JsonBackReference
+    //@JsonBackReference
     @ManyToOne
     @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
     private Account account;

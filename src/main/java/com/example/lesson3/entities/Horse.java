@@ -27,7 +27,13 @@ public class Horse {
     @Temporal(TemporalType.TIMESTAMP)
     private Date foaled;
 
-    @JsonManagedReference
+    //@JsonManagedReference
     @OneToMany(mappedBy = "horse")
     private List<HorseAccount> horseAccounts;
+
+    public Horse(Integer id, String name, Date foaled) {
+        this.id = id;
+        this.name = name;
+        this.foaled = foaled;
+    }
 }
